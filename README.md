@@ -1,18 +1,26 @@
-﻿# Agent Flight Recorder
+# Agent Flight Recorder
 
-把混乱的 AI Agent 长任务记录恢复成结构化任务地图，呈现计划、证据、发现、风险漂移和续接包，让任务可审计、可恢复、可交接。
+Agent Flight Recorder turns messy long-running AI agent work into a structured mission map with plans, evidence, findings, drift warnings, and a restart packet.
 
-## Demo
+![Agent Flight Recorder demo](docs/demo.png)
 
-Agent Flight Recorder 是一个轻量、本地文档驱动的工作流可视化 demo。它把 Agent Harness 风格的任务文档恢复为：
+## What It Shows
 
-- 结构化任务地图
-- 证据绑定的产物检查器
-- 漂移和缺口预警
-- 可交接的 restart packet
-- 原始黑箱记录与结构化恢复结果对比
+Agent Flight Recorder is a lightweight, document-native visualization demo for agent workflow continuity. It takes Agent Harness-style task records and presents them as:
 
-页面默认展示内置样例，点击“加载公开演示快照”后，会读取 `public/sample-data/agent-harness-task/` 中的 synthetic Agent Harness 任务快照。
+- A structured task map
+- Evidence-linked artifact inspection
+- Drift and missing-context warnings
+- A restart packet for the next agent
+- A side-by-side contrast between raw agent logs and recovered task state
+
+The app starts with a built-in synthetic mission. Use the snapshot loading button to recover a mission from the synthetic Markdown fixture in `public/sample-data/agent-harness-task/`.
+
+## Why It Matters
+
+Most agent tools focus on execution: prompts, tools, routing, and runtime automation.
+
+Agent Flight Recorder focuses on continuity: what the task is, what has been proven, what is still open, where state has drifted, and how another agent can resume without rereading a long transcript.
 
 ## Local Run
 
@@ -27,25 +35,26 @@ npm run dev
 npm run build
 ```
 
-如果部署到 GitHub Pages 的项目子路径，可以指定 Vite base path：
+For GitHub Pages or any deployment under a repository subpath, set the Vite base path:
 
 ```bash
-VITE_BASE_PATH=/agent-flight-recorder/ npm run build
+VITE_BASE_PATH=/Agent-Flight-Recorder/ npm run build
 ```
 
 PowerShell:
 
 ```powershell
-$env:VITE_BASE_PATH="/agent-flight-recorder/"; npm.cmd run build
+$env:VITE_BASE_PATH="/Agent-Flight-Recorder/"; npm.cmd run build
 ```
 
-## Project Shape
+## Project Structure
 
-- `src/domain/`: mission model, health scoring, graph conversion
+- `src/domain/`: mission model, health scoring, and graph conversion
 - `src/data/`: built-in demo data and synthetic snapshot loader
 - `src/components/`: cockpit UI surfaces
-- `public/sample-data/agent-harness-task/`: synthetic task snapshot for one-click demo
-- `docs/superpowers/`: design spec and implementation plan
+- `public/sample-data/agent-harness-task/`: synthetic task snapshot for the one-click demo
+- `docs/demo.png`: current demo screenshot
+- `docs/superpowers/`: design spec
 
 ## Public Snapshot Note
 
