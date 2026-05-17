@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.npm-cache/
+
+# build output
+dist/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# local logs and server captures
+*.log
+
+# local harness/runtime scratch data
+.superpowers/
+agent-harness-bin/
+agent-harness-data-smoke/
+agent-harness-logs/
+agent-workflow/
+
+# unrelated hackathon prototype in the same parent directory
+crowd-oracle-arena/
+docs/superpowers/specs/2026-05-16-crowd-oracle-arena-design.md
+docs/superpowers/plans/2026-05-16-crowd-oracle-arena.md
+docs/superpowers/plans/2026-05-17-public-release-sanitization.md
+
+# local env files
+.env
+.env.*
+!.env.example
